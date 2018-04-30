@@ -1,0 +1,66 @@
+.App {
+  text-align: inherit;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 65px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+  float: left;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+ul li {
+  float: left;
+  list-style: none;
+}
+
+.App-header>nav>ul li {
+  /* float: left; */
+  text-align: left;
+  float: right;
+  padding: 10px;
+}
+
+.App-header>nav>ul li a {
+  color: wheat;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.wrpr {
+  width: 100%;
+  float: left;
+  padding-top: 5px;
+}
+
+.compList li {
+  padding: 6px;
+  width: 52%;
+  text-align: left;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
