@@ -4,7 +4,7 @@ import './MainHeader.css';
 
 class MainHeader extends Component {
     static defaultProps = {
-        title: '', // required 
+        title: null, // required 
         options: {
             title_callback: () => { },
             back_label: '',

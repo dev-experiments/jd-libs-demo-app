@@ -7,7 +7,6 @@ import './SearchPage.css';
 
 class SearchPage extends Component {
     static defaultProps = {
-        title: '',
         searchResultItems: [],
         searchOptions: {
             placeholder: '',
