@@ -27,6 +27,9 @@ class SearchPage extends Component {
         this.state = {
             searchInput: ''
         }
+        this.clearTextHandle = this.clearTextHandle.bind(this);
+        this.searchInputOnChange = this.searchInputOnChange.bind(this);
+        this.keyUpHandle = this.keyUpHandle.bind(this);
     }
 
     keyUpHandle(e) {
@@ -45,8 +48,8 @@ class SearchPage extends Component {
         const header = <MainHeader title={this.props.title} options={this.props.headerOptions} />;
         const search = <div className="srchhtl">
             <span className="icon-search"></span>
-            <input value={this.state.searchInput} name="searchInput" type="text" onChange={(e) => { this.searchInputOnChange(e) }} onKeyUp={(e) => { this.keyUpHandle(e) }} placeholder={this.props.searchOptions.placeholder} autoComplete="off" />
-            <span className="cls_otr" onClick={(e) => { this.clearTextHandle(e) }} >
+            <input value={this.state.searchInput} name="searchInput" type="text" onChange={this.searchInputOnChange} onKeyUp={this.keyUpHandle} placeholder={this.props.searchOptions.placeholder} autoComplete="off" />
+            <span className="cls_otr" onClick={this.clearTextHandle} >
                 <span className="icon-close"></span>
             </span>
         </div>;

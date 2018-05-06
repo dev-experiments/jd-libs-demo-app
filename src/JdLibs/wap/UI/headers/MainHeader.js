@@ -13,9 +13,12 @@ class MainHeader extends Component {
             rightLink_callback: () => { }
         }
     }
-    /* constructor(props) {
+     constructor(props) {
         super(props);
-    } */
+        this.backButtonClickHandle = this.backButtonClickHandle.bind(this);
+        this.rightLinkClickHandle = this.rightLinkClickHandle.bind(this);
+        this.titleClickHandle = this.titleClickHandle.bind(this);
+    } 
    
     backButtonClickHandle() {
         if (this.props.options.back_callback) {
@@ -30,14 +33,14 @@ class MainHeader extends Component {
     backButton(label) {
         let ui = '';
         if (label) {
-            ui = <span className="backSpan" onClick={(e) => { this.backButtonClickHandle(e) }} > <span className="bcktxt">{label}</span></span>;
+            ui = <span className="backSpan" onClick={this.backButtonClickHandle} > <span className="bcktxt">{label}</span></span>;
         } else {
-            ui = <span className="icon-back-arrow backdiv" onClick={(e) => { this.backButtonClickHandle(e) }} ></span>;
+            ui = <span className="icon-back-arrow backdiv" onClick={this.backButtonClickHandle} ></span>;
         }
         return ui;
     }
     rightLink(label) {
-        return (label) ? <span className="hdrclstxt" onClick={(e) => { this.rightLinkClickHandle(e) }} >{label}</span> : '';
+        return (label) ? <span className="hdrclstxt" onClick={this.rightLinkClickHandle} >{label}</span> : '';
     }
     rightLinkClickHandle() {
         if (this.props.options.rightLink_callback) {
@@ -48,7 +51,7 @@ class MainHeader extends Component {
         return (
             <div className='headersection'>
                 {this.backButton(this.props.options.back_label)}
-                <span onClick={(e) => { this.titleClickHandle(e) }} >{this.props.title}</span>
+                <span onClick={this.titleClickHandle} >{this.props.title}</span>
                 {this.rightLink(this.props.options.rightLink_label)}
             </div>
         );
