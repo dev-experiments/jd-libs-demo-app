@@ -5,44 +5,38 @@ class SearchUI extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            search_result_items: this.searchResultItems()
+            searchItems: this.searchResultItems()
         };
     }
 
     searchOptions() {
         return {
             placeholder: 'Thats a search Title',
-            search_item_callback: () => { alert('search item called') },
-            search_keyUp_callback: () => { this.updateResult()}
+            searchItemCallback: () => { alert('search item called') },
+            searchKeyUpCallback: () => { this.updateResult() },
+            searchItemLabels: { text: 'city', sub_text: 'country' },
         };
     }
     searchResultItems() {
         return [{
             title: 'my recent serr ',
             items: [{
-                text: 'Bangalore',
-                sub_text: 'Indiiiaa',
+                id: 101,
+                city: 'Mumbai',
+                country: 'Indiaa',
                 link: '',
             },
             {
-                text: 'mumbai',
-                sub_text: 'India',
+                id: 102,
+                city: 'ssss',
+                country: 'Indiaa',
                 link: '',
             }]
         }];
     }
-    headerOptions() {
-        return {
-            title_callback: () => alert('title called'),
-            back_label: '',
-            back_callback: () => alert('back called'),
-            rightLink_label: 'Closee',
-            rightLink_callback: () => alert('right link called'),
-        };
-    }
     updateResult() {
         this.setState({
-            search_result_items: [{
+            searchItems: [{
                 title: 'newww ',
                 items: [{
                     text: 'tttttt',
@@ -55,7 +49,7 @@ class SearchUI extends Component {
                     link: '',
                 }]
             }]
-        },() => {
+        }, () => {
             console.log('updateResult');
         });
 
@@ -63,7 +57,7 @@ class SearchUI extends Component {
     render() {
         return (
             <div className="wrpr">
-                <SearchPage title="my search title" searchResultItems={this.state.search_result_items} searchOptions={this.searchOptions()} headerOptions={this.headerOptions()} />
+                <SearchPage title="my search title" searchItems={this.state.searchItems} searchOptions={this.searchOptions()} />
             </div>
         );
     }

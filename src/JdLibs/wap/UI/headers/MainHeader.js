@@ -6,67 +6,63 @@ class MainHeader extends Component {
     static defaultProps = {
         title: null, // required 
         options: {
-            title_callback: () => { },
-            back_label: '',
-            back_callback: () => { },
-            rightLink_label: '',
-            rightLink_callback: () => { }
+            titleCallback: () => { },
+            backLabel: '',
+            backCallback: () => { },
+            rightLinkLabel: '',
+            rightLinkCallback: () => { }
         }
     }
-     constructor(props) {
+    static propTypes = {
+        title: PropTypes.string.isRequired,
+        options: PropTypes.shape({
+            titleCallback: PropTypes.func,
+            backCallback: PropTypes.func,
+            backLabel: PropTypes.string,
+            rightLinkLabel: PropTypes.string,
+            rightLinkCallback: PropTypes.func
+        }),
+    }
+    /* constructor(props) {
         super(props);
-        this.backButtonClickHandle = this.backButtonClickHandle.bind(this);
-        this.rightLinkClickHandle = this.rightLinkClickHandle.bind(this);
-        this.titleClickHandle = this.titleClickHandle.bind(this);
-    } 
+    } */
    
     backButtonClickHandle() {
-        if (this.props.options.back_callback) {
-            this.props.options.back_callback();
+        if (this.props.options.backCallback) {
+            this.props.options.backCallback();
         }
     }
     titleClickHandle() {
-        if (this.props.options.title_callback) {
-            this.props.options.title_callback();
+        if (this.props.options.titleCallback) {
+            this.props.options.titleCallback();
         }
     }
     backButton(label) {
         let ui = '';
         if (label) {
-            ui = <span className="backSpan" onClick={this.backButtonClickHandle} > <span className="bcktxt">{label}</span></span>;
+            ui = <span className="backSpan" onClick={(e) => { this.backButtonClickHandle(e) }} > <span className="bcktxt">{label}</span></span>;
         } else {
-            ui = <span className="icon-back-arrow backdiv" onClick={this.backButtonClickHandle} ></span>;
+            ui = <span className="icon-back-arrow backdiv" onClick={(e) => { this.backButtonClickHandle(e) }} ></span>;
         }
         return ui;
     }
     rightLink(label) {
-        return (label) ? <span className="hdrclstxt" onClick={this.rightLinkClickHandle} >{label}</span> : '';
+        return (label) ? <span className="hdrclstxt" onClick={(e) => { this.rightLinkClickHandle(e) }} >{label}</span> : '';
     }
     rightLinkClickHandle() {
-        if (this.props.options.rightLink_callback) {
-            this.props.options.rightLink_callback();
+        if (this.props.options.rightLinkCallback) {
+            this.props.options.rightLinkCallback();
         }
     }
     render() {
         return (
             <div className='headersection'>
-                {this.backButton(this.props.options.back_label)}
-                <span onClick={this.titleClickHandle} >{this.props.title}</span>
-                {this.rightLink(this.props.options.rightLink_label)}
+                {this.backButton(this.props.options.backLabel)}
+                <span onClick={(e) => { this.titleClickHandle(e) }} >{this.props.title}</span>
+                {this.rightLink(this.props.options.rightLinkLabel)}
             </div>
         );
     }
 }
-
-MainHeader.propTypes = {
-    title: PropTypes.string.isRequired,
-    options: PropTypes.shape({
-        title_callback: PropTypes.func,
-        back_callback: PropTypes.func,
-        back_label: PropTypes.string,
-        rightLink_label: PropTypes.string,
-        rightLink_callback: PropTypes.func
-    }),
-};
 
 export default MainHeader;

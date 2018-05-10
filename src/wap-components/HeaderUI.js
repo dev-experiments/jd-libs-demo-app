@@ -4,11 +4,11 @@ import MainHeader from './../JdLibs/wap/UI/headers/MainHeader';
 class HeaderUI extends Component {
     headerOptions (){
         let opt = {};
-        opt.title_callback = () => alert('title called');
-        opt.back_callback = () => alert('back called');
-        opt.rightLink_label = 'Close';
-        opt.rightLink_callback = () => alert('right link called');
-       // opt.back_label = 'Back';
+        opt.titleCallback = () => alert('title called');
+        opt.backCallback = () => alert('back called');
+        opt.rightLinkLabel = 'Close';
+        opt.rightLinkCallback = () => alert('right link called');
+       // opt.backLabel = 'Back';
         return opt;
     }
     render() {
