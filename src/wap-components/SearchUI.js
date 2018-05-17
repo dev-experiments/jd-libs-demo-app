@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchPage from './../JdLibs/wap/UI/pages/SearchPage';
+import SearchPage from './../JdLibs/wap/UI/search-pages/SearchPage';
 
 class SearchUI extends Component {
     constructor(props) {
