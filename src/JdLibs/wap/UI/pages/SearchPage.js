@@ -7,44 +7,54 @@ import './SearchPage.css';
 class SearchPage extends Component {
     static defaultProps = {
         searchItems: [],
+        searchInput: '',
         searchOptions: {
             placeholder: '',
             searchItemCallback: () => { },
-            searchKeyUpCallback: () => { },
-            searchItemLabels: {}
+            searchInputChangeCallback: () => { },
+            searchItemLabels: {},
+            clearSearchInputCallback: () => { }
         }
     }
     static propTypes = {
+        searchInput: PropTypes.string,
         searchOptions: PropTypes.shape({
             placeholder: PropTypes.string,
-            searchKeyUpCallback: PropTypes.func,
+            searchInputChangeCallback: PropTypes.func,
+            clearSearchInputCallback: PropTypes.func,
         })
     }
 
     constructor(props) {
         super(props);
         this.state = {
-            searchInput: ''
+            searchInput: this.props.searchInput
         }
+        this.searchInputOnChange = this.searchInputOnChange.bind(this);
+        this.clearTextHandle = this.clearTextHandle.bind(this);
+        this.inputChangeHandle = this.inputChangeHandle.bind(this);
     }
 
-    keyUpHandle(e) {
+    inputChangeHandle(e) {
         this.setState({ searchInput: e.target.value });
-        if (this.props.searchOptions.searchKeyUpCallback) {
-            this.props.searchOptions.searchKeyUpCallback(e.target.value);
+        if (this.props.searchOptions.searchInputChangeCallback) {
+            this.props.searchOptions.searchInputChangeCallback(e.target);
         }
     }
     searchInputOnChange(e) {
         this.setState({ searchInput: e.target.value });
     }
-    clearTextHandle() {
+    clearTextHandle(e) {
         this.setState({ searchInput: '' });
+        if (this.props.searchOptions.clearSearchInputCallback) {
+            this.props.searchOptions.clearSearchInputCallback(e);
+        }
     }
     render() {
         const search = <div className="srchhtl">
             <span className="icon-search"></span>
-            <input value={this.state.searchInput} name="searchInput" type="text" onChange={(e) => { this.searchInputOnChange(e) }} onKeyUp={(e) => { this.keyUpHandle(e) }} placeholder={this.props.searchOptions.placeholder} autoComplete="off" />
-            <span className="cls_otr" onClick={(e) => { this.clearTextHandle(e) }} >
+            <input value={this.state.searchInput} name="searchInput" type="text" onChange={this.searchInputOnChange} onKeyUp={this.inputChangeHandle} placeholder={this.props.searchOptions.placeholder} autoComplete="off" />
+            <span className="cls_otr" onClick={this.clearTextHandle} >
                 <span className="icon-close"></span>
             </span>
         </div>;

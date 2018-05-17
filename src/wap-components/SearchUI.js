@@ -13,8 +13,9 @@ class SearchUI extends Component {
         return {
             placeholder: 'Thats a search Title',
             searchItemCallback: () => { alert('search item called') },
-            searchKeyUpCallback: () => { this.updateResult() },
+            searchInputChangeCallback: () => { this.updateResult() },
             searchItemLabels: { text: 'city', sub_text: 'country' },
+            clearSearchInputCallback: (e) => { alert('clear')}
         };
     }
     searchResultItems() {
@@ -24,13 +25,11 @@ class SearchUI extends Component {
                 id: 101,
                 city: 'Mumbai',
                 country: 'Indiaa',
-                link: '',
             },
             {
                 id: 102,
                 city: 'ssss',
                 country: 'Indiaa',
-                link: '',
             }]
         }];
     }
@@ -39,14 +38,12 @@ class SearchUI extends Component {
             searchItems: [{
                 title: 'newww ',
                 items: [{
-                    text: 'tttttt',
-                    sub_text: 'Indiiiaa',
-                    link: '',
+                    city: 'tttttt',
+                    country: 'Indiiiaa',
                 },
                 {
-                    text: 'yyyyyyyy',
-                    sub_text: 'India',
-                    link: '',
+                    city: 'yyyyyyyy',
+                    country: 'India',
                 }]
             }]
         }, () => {
@@ -57,7 +54,7 @@ class SearchUI extends Component {
     render() {
         return (
             <div className="wrpr">
-                <SearchPage title="my search title" searchItems={this.state.searchItems} searchOptions={this.searchOptions()} />
+                <SearchPage searchItems={this.state.searchItems} searchInput="" searchOptions={this.searchOptions()} />
             </div>
         );
     }
