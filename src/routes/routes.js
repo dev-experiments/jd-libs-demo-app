@@ -5,12 +5,14 @@ import Home from './../Home';
 import Wap from './../Wap';
 import HeaderUI from './../wap-components/HeaderUI';
 import SearchUI from './../wap-components/SearchUI';
+import CalendarUI from './../wap-components/CalendarUI';
 
 const AppRoutes = (
     <Switch>
         {/* Wap routes */}
         <Route path='/wap/header' component={HeaderUI} />
         <Route path='/wap/search-page' component={SearchUI} />
+        <Route path='/wap/calendar-page' component={CalendarUI} />
         <Route exact path="/wap" component={Wap} />
 
         {/* Web routes */}
