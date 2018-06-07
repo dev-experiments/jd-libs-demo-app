@@ -17,8 +17,6 @@ class Wap extends Component {
                         <li><Link to="/wap/calendar-page">Calendar Page</Link></li>
                     </ul>
                 </div>
-                <div className="container">
-                </div>
 
             </div>);
     }

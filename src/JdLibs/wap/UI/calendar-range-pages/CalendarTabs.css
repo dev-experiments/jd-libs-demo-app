@@ -1,0 +1,39 @@
+.wrapcalander .slcatg {
+    background-color: white;
+    width: 50%;
+    height: 50px;
+    text-align: center;
+    float: left;
+    border-right: 1px solid #f4f4f4;
+    box-sizing: border-box;
+    padding: 10px 0 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #424242;
+    position: relative;
+    line-height: 10px;
+}
+.wrapcalander .slcatg:first-child {
+    left: 0;
+}
+.wrapcalander .slcatg+.slcatg {
+    right: 0;
+}
+.wrapcalander .slcatg input {
+    float: left;
+    width: 100%;
+    font-size: 13px;
+    color: #909090;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    background: none;
+    height: 29px;
+}
+.wrapcalander .slcatg :last-child {
+    border: 0;
+}
+.wrapcalander .slcatg input.active {
+    border-bottom: 3px solid #1e91bd;
+}
+

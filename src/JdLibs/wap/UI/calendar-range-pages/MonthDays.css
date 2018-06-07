@@ -1,0 +1,123 @@
+.Cutm_datepicker {
+    width: 100%;
+    float: left;
+}
+
+.Cutm_datepicker:first-of-type {
+    margin: 6px 0 0;
+    position: relative;
+}
+
+ .date-header {
+    background: #f6f6f6;
+    border: 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: #909090;
+    padding: 10px 0;
+    margin: 0 0 9px;
+}
+
+.Cutm_datepicker .date-title {
+    margin: 0 2.3em;
+    line-height: 1.8em;
+}
+
+.Cutm_datepicker .date-calendar {
+    margin: 0 auto;
+    width: 96%;
+    border-collapse: collapse;
+}
+
+.Cutm_datepicker .date-calendar th {
+    padding: .7em .3em;
+    text-align: center;
+    font-weight: bold;
+    border: 0;
+}
+
+.Cutm_datepicker .date-calendar td {
+    width: 14%;
+    font-size: 15px;
+    padding: 0;
+    white-space: nowrap;
+    position: relative;
+}
+
+.Cutm_datepicker .date-disabled {
+    cursor: default !important;
+    pointer-events: none;
+    opacity: 1;
+    background-image: none;
+}
+
+.Cutm_datepicker .prvsDate {
+    cursor: default !important;
+    pointer-events: none;
+    opacity: 0.3;
+    background-image: none;
+    color: #767676
+}
+
+.Cutm_datepicker .date-calendar td a[data-custom] {
+    position: relative;
+}
+
+.Cutm_datepicker .date-calendar td a[data-custom]::after {
+    content: '' attr(data-custom);
+    display: block;
+    padding: 2px 0 0;
+    color: #767676;
+    font-size: 11px;
+}
+
+.Cutm_datepicker .date-calendar td span,
+.Cutm_datepicker .date-calendar td a {
+    display: block;
+    padding: 7px 0;
+    text-decoration: none;
+    text-align: center;
+    border: 0;
+    background: none;
+    color: #424242;
+}
+
+.Cutm_datepicker .date-calendar .date-highlight {
+    background: #ececec;
+    border-radius: 5px;
+}
+
+.Cutm_datepicker .date-calendar .chckseldat {
+    border: none;
+    color: #fff;
+    text-align: center;
+    background-color: #007aff;
+    border-radius: 5px;
+}
+
+.Cutm_datepicker .date-calendar .chckseldat a {
+    color: #fff;
+}
+
+.htlnight {
+    background: #fff;
+    font-size: 13px;
+    color: #909090;
+    text-align: center;
+    z-index: 1;
+    float: right;
+}
+
+.Cutm_datepicker .date-header .htlnight {
+    background: none;
+    z-index: 0;
+}
+
+.icon-jd_nights {
+    width: 10px;
+    height: 10px;
+    background-size: 100%;
+    display: inline-block;
+    margin: 0 6px;
+    font-size: 10px;
+}

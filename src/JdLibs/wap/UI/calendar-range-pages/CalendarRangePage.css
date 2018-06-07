@@ -1,0 +1,25 @@
+input[type="text"]:disabled,
+input:disabled,
+input[type="text"] {
+    background-color: #fff;
+    opacity: 1;
+    -webkit-text-fill-color: #424242;
+}
+
+.wrapcalander {
+    width: 100%;
+    float: left;
+}
+
+#radioDiv {
+    float: left;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.wrapcalander .vertical_view {
+    height: calc(100vh - 124px);
+    overflow-y: scroll;
+    display: table;
+    width: 100%;
+}

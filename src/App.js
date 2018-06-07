@@ -20,9 +20,6 @@ class App extends Component {
           </nav>
         </header>
         <div className="container">
-        </div>
-
-        <div className="container">
           {AppRoutes}
         </div>
 
